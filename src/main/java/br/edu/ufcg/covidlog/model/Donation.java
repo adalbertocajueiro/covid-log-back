@@ -1,4 +1,4 @@
-package br.edu.ufcg.covidlog.donation;
+package br.edu.ufcg.covidlog.model;
 
 /**
  * A donation is provided by a donor to an entity. A donor has many options for donating 

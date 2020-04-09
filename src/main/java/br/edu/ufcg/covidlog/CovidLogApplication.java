@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CovidLogApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
 		SpringApplication.run(CovidLogApplication.class, args);
 	}
 	
