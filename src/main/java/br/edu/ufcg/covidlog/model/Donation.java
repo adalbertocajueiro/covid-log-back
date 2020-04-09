@@ -1,6 +1,11 @@
 package br.edu.ufcg.covidlog.model;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.edu.ufcg.covidlog.enums.KindOfNeed;
 
@@ -11,11 +16,74 @@ import br.edu.ufcg.covidlog.enums.KindOfNeed;
  * @author adalbertocajueiro
  *
  */
+@Document(collection = "donations")
 public class Donation {
-	private long id;
+	@Id
+	@JsonProperty
+	private String id;
 	private KindOfNeed kind;
 	private Need targetNeed;
 	private boolean requiresTransport;
 	private String description;
-	private GregorianCalendar date;
+	private LocalDateTime date;
+	
+	public Donation(KindOfNeed kind, Need targetNeed, Boolean requiresTransport, String description, LocalDateTime date) {
+		this.kind = kind;
+		this.targetNeed = targetNeed;
+		this.requiresTransport = requiresTransport;
+		this.description = description;
+		this.date = date;
+	}
+	
+	public Donation() {
+
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public KindOfNeed getKind() {
+		return kind;
+	}
+
+	public void setKind(KindOfNeed kind) {
+		this.kind = kind;
+	}
+
+	public Need getTargetNeed() {
+		return targetNeed;
+	}
+
+	public void setTargetNeed(Need targetNeed) {
+		this.targetNeed = targetNeed;
+	}
+
+	public boolean isRequiresTransport() {
+		return requiresTransport;
+	}
+
+	public void setRequiresTransport(boolean requiresTransport) {
+		this.requiresTransport = requiresTransport;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}	
 }
