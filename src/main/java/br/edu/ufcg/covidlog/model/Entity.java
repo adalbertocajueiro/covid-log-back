@@ -8,6 +8,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Entity is a community or group that demands any help.
  * 
@@ -20,13 +24,15 @@ public class Entity {
 	@JsonProperty
 	private String id;
 	private String name;
+	private List<Need> needs;
 	
 	@GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
 	private GeoJsonPoint location;
 	 
-	public Entity(String name, Double longitude, Double latitude) {
+	public Entity(String name, Double longitude, Double latitude, List<Need> needs) {
 		this.name = name;
 		this.location = new GeoJsonPoint(longitude, latitude);
+		this.needs = new ArrayList<Need>(needs);
 	}
 	 
 	public Entity() {
@@ -56,4 +62,14 @@ public class Entity {
 	public void setLocation(Double longitude, Double latitude) {
 		this.location = new GeoJsonPoint(longitude, latitude);
 	}
+
+	public List<Need> getNeeds() {
+		return needs;
+	}
+
+	public void setNeeds(List<Need> needs) {
+		this.needs = new ArrayList<Need>(needs);
+	}
+	
+	
 }
