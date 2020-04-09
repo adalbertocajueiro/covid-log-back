@@ -1,0 +1,8 @@
+spring.data.mongodb.uri=mongodb+srv://covidlogufcg:covidlog2020ufcg@cluster0-iegim.mongodb.net/test?retryWrites=true&w=majority
+spring.data.mongodb.database = covidlog
+
+server.port=5458
+
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+

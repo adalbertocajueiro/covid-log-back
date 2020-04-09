@@ -1,0 +1,10 @@
+spring.data.mongodb.uri=mongodb://localhost:27017
+spring.data.mongodb.database = covidlog
+
+server.port=5458
+
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+
+
+
