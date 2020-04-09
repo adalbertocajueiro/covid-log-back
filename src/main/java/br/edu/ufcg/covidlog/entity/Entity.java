@@ -7,8 +7,11 @@ package br.edu.ufcg.covidlog.entity;
  *
  */
 public class Entity {
+	private long id;
 	private String name;
-	private String id;
+	private double latitude;
+	private double longitude;
+	
 	
 	//precisa representar aqui as coordenadas do local
 }
