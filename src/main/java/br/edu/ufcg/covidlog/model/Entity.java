@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
  *
  */
 public class Entity {
+	private long id;
 	private String name;
-	private String id;
 	
 	 @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
 	 private GeoJsonPoint location;
