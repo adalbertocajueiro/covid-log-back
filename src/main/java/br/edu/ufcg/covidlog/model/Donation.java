@@ -16,13 +16,15 @@ public class Donation {
 	private String id;
 	private KindOfNeed kind;
 	private Need targetNeed;
+	private String userId;
 	private boolean requiresTransport;
 	private String description;
 	private LocalDateTime date;
 	
-	public Donation(KindOfNeed kind, Need targetNeed, Boolean requiresTransport, String description, LocalDateTime date) {
+	public Donation(KindOfNeed kind, Need targetNeed, String userId, Boolean requiresTransport, String description, LocalDateTime date) {
 		this.kind = kind;
 		this.targetNeed = targetNeed;
+		this.userId = userId;
 		this.requiresTransport = requiresTransport;
 		this.description = description;
 		this.date = date;
@@ -54,6 +56,14 @@ public class Donation {
 
 	public void setTargetNeed(Need targetNeed) {
 		this.targetNeed = targetNeed;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public boolean isRequiresTransport() {
