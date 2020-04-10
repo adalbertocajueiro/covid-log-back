@@ -15,8 +15,9 @@ public abstract interface NeedRepository extends MongoRepository<Need, String> {
 	//findByKindOfNeed (eq)
 	//findByDate (gt && lt)
 	
-	//findByIDNeedStatus (eq)
-	//findByIDNeedDescription (eq)
-	//findByIDKindOfNeed (eq)
-	//findByIDDate (gt && lt)
+	//findByEntityID
+	//findByEntityIDNeedStatus (eq)
+	//findByEntityIDNeedDescription (eq)
+	//findByEntityIDKindOfNeed (eq)
+	//findByEntityIDDate (gt && lt)
 }

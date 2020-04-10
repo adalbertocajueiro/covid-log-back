@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.edu.ufcg.covidlog.exception.PermissionDeniedException;
 import br.edu.ufcg.covidlog.exception.RegisterNotFoundException;
 import br.edu.ufcg.covidlog.model.Need;
 import br.edu.ufcg.covidlog.repository.NeedRepository;
@@ -49,17 +48,14 @@ public class NeedService {
 		}
 
 		Need newNeed = optNeed.get();
-		
-		if (!need.getEntityId().equals(newNeed.getEntityId())) {
-			throw new PermissionDeniedException("The need ownering is from another entity");
-		}
+		newNeed.setKind(need.getKind());
+		newNeed.setStatus(need.getStatus());
+		newNeed.setEntityId(need.getEntityId());
+		newNeed.setDescription(need.getDescription());
+		newNeed.setDate(need.getDate());
+		needRepository.save(newNeed);
 
-
-        need.setId(id);
-
-		needRepository.save(need);
-
-		return need;
+		return newNeed;
 	}
 	
 	public Page<Need> getAll(int page, int size) {
