@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.ufcg.covidlog.model.Entity;
 
 @Repository
-public abstract interface EntityRepository extends MongoRepository<Entity, String>{
+public abstract interface EntityRepository extends MongoRepository<Entity, String> {
 	Optional<Entity> findById(String id);
-
+	//findByEntityName
 }

@@ -38,9 +38,9 @@ public class EntityController {
 	}
 
 	@RequestMapping(value = "/entity/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Entity> update(@PathVariable("id") String id, @RequestBody Entity questao) throws IOException {
-		Entity updatedQuestao = entityService.update(questao, id);
-		return new ResponseEntity<Entity>(updatedQuestao, HttpStatus.OK);
+	public ResponseEntity<Entity> update(@PathVariable("id") String id, @RequestBody Entity entity) throws IOException {
+		Entity updatedEntity = entityService.update(entity, id);
+		return new ResponseEntity<Entity>(updatedEntity, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/entity/{page}/{size}", method = RequestMethod.GET)
