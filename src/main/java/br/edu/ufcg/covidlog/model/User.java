@@ -1,6 +1,5 @@
 package br.edu.ufcg.covidlog.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -18,7 +17,6 @@ public class User {
 	private Role role;
 	private String email;
 	private String telefone;
-	private List<Donation> donations;
 	
 	public User(String email, String telefone, List<Donation> donations) {
 		this.email = email;
@@ -28,7 +26,6 @@ public class User {
 		} else {
 			this.role = Role.DONOR;
 		}
-		this.donations = new ArrayList<Donation>(donations);
 	}
 	
 	public User() {
@@ -67,11 +64,4 @@ public class User {
 		this.telefone = telefone;
 	}
 
-	public List<Donation> getDonations() {
-		return donations;
-	}
-
-	public void setDonations(List<Donation> donations) {
-		this.donations = donations;
-	}
 }
