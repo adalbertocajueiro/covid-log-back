@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.edu.ufcg.covidlog.exception.PermissionDeniedException;
 import br.edu.ufcg.covidlog.exception.RegisterNotFoundException;
 import br.edu.ufcg.covidlog.model.Entity;
 import br.edu.ufcg.covidlog.repository.EntityRepository;
@@ -49,17 +48,12 @@ public class EntityService {
 		}
 
 		Entity newEntity = optEntity.get();
+		newEntity.setName(entity.getName());
+		newEntity.setLocation(entity.getLocation().get(0),entity.getLocation().get(1));
 		
-		if (!entity.getName().equals(newEntity.getName())) {
-			throw new PermissionDeniedException("The entity ownering is from another user");
-		}
+		entityRepository.save(newEntity);
 
-
-        entity.setId(id);
-
-		entityRepository.save(entity);
-
-		return entity;
+		return newEntity;
 	}
 	
 	public Page<Entity> getAll(int page, int size) {
