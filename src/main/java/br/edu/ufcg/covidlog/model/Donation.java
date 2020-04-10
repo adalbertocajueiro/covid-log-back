@@ -2,10 +2,6 @@ package br.edu.ufcg.covidlog.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.edu.ufcg.covidlog.enums.KindOfNeed;
 
@@ -16,10 +12,7 @@ import br.edu.ufcg.covidlog.enums.KindOfNeed;
  * @author adalbertocajueiro
  *
  */
-@Document(collection = "donations")
 public class Donation {
-	@Id
-	@JsonProperty
 	private String id;
 	private KindOfNeed kind;
 	private Need targetNeed;
