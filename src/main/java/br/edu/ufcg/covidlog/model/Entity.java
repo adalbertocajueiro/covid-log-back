@@ -1,7 +1,5 @@
 package br.edu.ufcg.covidlog.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
@@ -27,9 +25,9 @@ public class Entity {
 	@GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
 	private GeoJsonPoint location;
 	 
-	public Entity(String name, Double longitude, Double latitude) {
+	public Entity(String name, GeoJsonPoint location) {
 		this.name = name;
-		this.location = new GeoJsonPoint(longitude, latitude);
+		this.location = location;
 	}
 	 
 	public Entity() {
@@ -52,11 +50,12 @@ public class Entity {
 		this.name = name;
 	}
 
-	public List<Double> getLocation() {
-		return location.getCoordinates();
+	public GeoJsonPoint getLocation() {
+		return location;
 	}
 
-	public void setLocation(Double longitude, Double latitude) {
-		this.location = new GeoJsonPoint(longitude, latitude);
+	public void setLocation(GeoJsonPoint location) {
+		this.location = location;
 	}
+
 }
