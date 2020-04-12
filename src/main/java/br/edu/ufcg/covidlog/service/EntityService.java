@@ -49,7 +49,7 @@ public class EntityService {
 
 		Entity newEntity = optEntity.get();
 		newEntity.setName(entity.getName());
-		newEntity.setLocation(entity.getLocation().get(0),entity.getLocation().get(1));
+		newEntity.setLocation(entity.getLocation());
 		
 		entityRepository.save(newEntity);
 
