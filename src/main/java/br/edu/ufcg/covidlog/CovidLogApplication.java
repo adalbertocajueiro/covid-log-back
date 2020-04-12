@@ -11,10 +11,19 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import br.edu.ufcg.covidlog.config.TokenFilter;
+
+
 @SpringBootApplication
 @RestController
 public class CovidLogApplication {
-	
+	@Bean
+	public FilterRegistrationBean filterJwt() {
+		FilterRegistrationBean filterRb = new FilterRegistrationBean();
+		filterRb.setFilter(new TokenFilter());
+		filterRb.addUrlPatterns("/auth/authenticate/*", "/user/*", "/entity/*", "/need/*", "/donation/*");
+		return filterRb;
+	}
 	
 	@Bean
 	public FilterRegistrationBean corsFilter() {
