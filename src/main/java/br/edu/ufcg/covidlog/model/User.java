@@ -9,18 +9,18 @@ import br.edu.ufcg.covidlog.enums.Role;
 
 @Document(collection = "users")
 public class User {
-	@Id
-	@JsonProperty
-	private String id;
 	private Role role;
+	@Id
 	private String email;
 	private String telefone;
 	
 	public User(String email, String telefone) {
 		this.email = email;
 		this.telefone = telefone;
-		if (email.equals("marcelo.vitorino@ccc.ufcg.edu.br")) {
-			this.role = Role.ADMIN;
+		if (email != null) {
+			if (email.equals("marcelo.vitorino@ccc.ufcg.edu.br")) {
+				this.role = Role.ADMIN;
+			} 
 		} else {
 			this.role = Role.DONOR;
 		}
@@ -28,14 +28,6 @@ public class User {
 	
 	public User() {
 
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public Role getRole() {
