@@ -1,4 +1,4 @@
-package br.edu.ufcg.covidlog.util;
+	package br.edu.ufcg.covidlog.util;
 
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
@@ -23,10 +23,9 @@ public class GoogleIdVerifier {
 
     public static GoogleIdToken.Payload getPayload(String tokenString) {
         try {
-        	System.out.println(tokenString);
             GoogleIdToken idToken = verifier.verify(tokenString);
-            System.out.println(idToken);
             if(idToken != null) {
+            	System.out.println(idToken.getPayload().getEmail());
                 return idToken.getPayload();
             } else {
                 throw new InvalidTokenException();
